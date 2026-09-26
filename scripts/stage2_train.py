@@ -1,11 +1,3 @@
-import os, sys
-
-REPO = "/content/src/mprotein"
-if os.path.isdir(REPO):
-    os.chdir(REPO)
-    sys.path.insert(0, os.path.join(REPO, "src"))
-
-
 import os
 import gc
 import copy
