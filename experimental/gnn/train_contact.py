@@ -4,7 +4,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 import h5py
 import numpy as np
-from src.ensemble import contact_Regression
+from mprotein.models.stack_ensemble import contact_Regression
 
 H5_PATH = "./data/maps/maps.h5"
 SAVE_DIR = "./data/weights/"

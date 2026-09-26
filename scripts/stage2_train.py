@@ -1,7 +1,4 @@
-import sys, os
-
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-
+import os
 import gc
 import copy
 import yaml
@@ -11,11 +8,11 @@ from tqdm import tqdm
 from torch.optim import AdamW
 from torch.utils.data import DataLoader
 from safetensors.torch import save_model
-from src.ensemble import MetaModel_pred
-from src.utils import mcc_multilabel, take_at_least_one, EarlyStopping
-from src.fitting import model_train, model_eval
-from src.model import Deeploc2_1, AttentionPoolingConfig, ModelConfig
-from src.dataset_loader import padding_collate_fn, K_CV_Dataset
+from mprotein.models.stack_ensemble import MetaModel_pred
+from mprotein.utils import mcc_multilabel, take_at_least_one, EarlyStopping
+from mprotein.fit.fit import model_train, model_eval
+from mprotein.models.core import Deeploc2_1, AttentionPoolingConfig, ModelConfig
+from mprotein.embeddings.embeddings_load import padding_collate_fn, K_CV_Dataset
 
 with open("configs/config_v1.yaml") as f:
     file = yaml.full_load(f)

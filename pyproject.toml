@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mprotein"
+version = "0.1.0"
+description = "Multi-label protein subcellular localization classifier"
+dependencies = [
+    "torch",
+    "transformers",
+    "safetensors",
+    "h5py",
+    "numpy",
+    "pandas",
+    "scikit-learn",
+    "joblib",
+    "tqdm",
+    "pyyaml",
+    "optuna",
+    "einops",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]

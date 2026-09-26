@@ -2,7 +2,7 @@ import sys, os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from src.loss import weighted_focal_loss
+from mprotein.losses.weighted_focal_loss import weighted_focal_loss
 import torch
 import numpy as np
 

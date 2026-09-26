@@ -1,7 +1,8 @@
 import os
 import torch
-import h5py
-from torch_geometric.data import Data
+
+# import h5py
+# from torch_geometric.data import Data
 from safetensors import safe_open
 from torch.utils.data import Dataset
 from torch.nn.utils.rnn import pad_sequence
@@ -61,7 +62,7 @@ class K_CV_Dataset(Dataset):
         return embedding, target
 
 
-
+"""
 @torch.no_grad()
 def topk_edges_from_adj(A, k=32, add_loop=True):
     from torch_geometric.utils import add_self_loops
@@ -138,3 +139,4 @@ class K_CV_PyGDataset(Dataset):
         edge_index, edge_weight = topk_edges_from_adj(graph, k=self.k_, add_loop=True)
         data = Data(x=embedding, edge_index=edge_index, edge_weight=edge_weight, y=target)
         return data
+"""

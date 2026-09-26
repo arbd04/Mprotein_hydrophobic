@@ -243,7 +243,7 @@ $RECYCLE.BIN/
 
 
 ## etc ##
-/data/embed_target/
 /data/maps/
 /git_commit.ipynb
 /etc.gdoc
+/data/embed_target/embeddings.safetensors

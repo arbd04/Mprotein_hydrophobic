@@ -11,11 +11,11 @@ from tqdm import tqdm
 from torch.optim import AdamW
 from torch.utils.data import DataLoader
 from safetensors.torch import save_model
-from src.ensemble import MetaModel_pred
-from src.utils import mcc_multilabel, take_at_least_one, EarlyStopping
-from src.fitting_gnn import model_train_pyg, model_eval_pyg
-from src.model_gnn import Deeploc2_1_PyG, ModelConfigPyG
-from src.dataset_loader import K_CV_PyGDataset
+from mprotein.models.stack_ensemble import MetaModel_pred
+from src.mprotein.utils import mcc_multilabel, take_at_least_one, EarlyStopping
+from experimental.gnn.fitting_gnn import model_train_pyg, model_eval_pyg
+from experimental.gnn.model_gnn import Deeploc2_1_PyG, ModelConfigPyG
+from mprotein.data.embeddings_load import K_CV_PyGDataset
 
 with open("configs/config_v2.yaml") as f:
     file = yaml.full_load(f)

@@ -1,6 +1,5 @@
 import numpy as np
 
-
 def save_dataset(group, name, data, opts=4):
     if name in group:
         del group[name]
