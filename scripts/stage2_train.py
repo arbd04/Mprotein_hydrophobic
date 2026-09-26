@@ -8,6 +8,7 @@ from tqdm import tqdm
 from torch.optim import AdamW
 from torch.utils.data import DataLoader
 from safetensors.torch import save_model
+from mprotein.losses.weighted_focal_loss import weighted_focal_loss
 from mprotein.models.stack_ensemble import MetaModel_pred
 from mprotein.utils import mcc_multilabel, take_at_least_one, EarlyStopping
 from mprotein.fit.fit import model_train, model_eval
