@@ -29,6 +29,8 @@ with open("/content/drive/MyDrive/Github/Mprotein_hydrophobic/config_v1.yaml") a
     model = file["model"]
     pool = file["pool"]
 
+## colab cli 환경에서 하기 위한 임시 코드
+loss["weight"] = torch.tensor(loss["weight"], dtype=torch.float32)
 weight_path = "/content/drive/MyDrive/Github/Mprotein_hydrophobic/weight"
 DATA_PATH = "/content/drive/MyDrive/Github/Mprotein_hydrophobic"
 
