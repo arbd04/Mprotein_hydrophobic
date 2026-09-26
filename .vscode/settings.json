@@ -15,5 +15,4 @@
         "thres",
         "thresholding"
     ],
-    "python-envs.defaultEnvManager": "ms-python.python:venv"
 }

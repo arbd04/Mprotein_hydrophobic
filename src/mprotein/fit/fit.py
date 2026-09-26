@@ -1,4 +1,4 @@
-from mprotein.losses import weighted_focal_loss
+from mprotein.losses.weighted_focal_loss import weighted_focal_loss
 import torch
 import numpy as np
 

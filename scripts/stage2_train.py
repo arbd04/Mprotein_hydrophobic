@@ -1,3 +1,11 @@
+import os, sys
+
+REPO = "/content/src/mprotein"
+if os.path.isdir(REPO):
+    os.chdir(REPO)
+    sys.path.insert(0, os.path.join(REPO, "src"))
+
+
 import os
 import gc
 import copy
@@ -14,10 +22,11 @@ from mprotein.fit.fit import model_train, model_eval
 from mprotein.models.core import Deeploc2_1, AttentionPoolingConfig, ModelConfig
 from mprotein.embeddings.embeddings_load import padding_collate_fn, K_CV_Dataset
 
-with open("configs/config_v1.yaml") as f:
+# with open("configs/config_v1.yaml") as f:
+with open("/content/drive/MyDrive/Github/Mprotein_hydrophobic/config_v1.yaml") as f:
     file = yaml.full_load(f)
-    weight_path = file["weights_path"]
-    DATA_PATH = file["data_path"]
+    #    weight_path = file["weights_path"]
+    #    DATA_PATH = file["data_path"]
     K_CV = file["k_cv"]
     NUM_EPOCHS = file["num_epochs"]
     IR = file["learning_rate"]
@@ -26,6 +35,9 @@ with open("configs/config_v1.yaml") as f:
     loss = file["loss"]
     model = file["model"]
     pool = file["pool"]
+
+weight_path = "/content/drive/MyDrive/Github/Mprotein_hydrophobic/weight"
+DATA_PATH = "/content/drive/MyDrive/Github/Mprotein_hydrophobic"
 
 CFG = ModelConfig(**model, pool=AttentionPoolingConfig(**pool))
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -59,7 +71,13 @@ for k in range(K_CV):
         epoch_iterator.write(f"Epoch {epoch_now}/{NUM_EPOCHS}")
         ## TRAIN
         train_loss_mean = model_train(
-            MODEL, DEVICE, OPTIMIZER, DATALOADER_TRAIN, **loss
+            MODEL,
+            DEVICE,
+            OPTIMIZER,
+            DATALOADER_TRAIN,
+            loss["weight"],
+            loss["alpha"],
+            loss["gamma"],
         )
         epoch_iterator.write(f"TRAIN done")
         epoch_iterator.write(f"Train Loss: {train_loss_mean}")
@@ -69,7 +87,9 @@ for k in range(K_CV):
             MODEL,
             DEVICE,
             DATALOADER_THRES,
-            **loss,
+            loss["weight"],
+            loss["alpha"],
+            loss["gamma"],
             is_loss=False,
         )
         threshold, mcc_thres = mcc_multilabel(
@@ -84,7 +104,9 @@ for k in range(K_CV):
             MODEL,
             DEVICE,
             DATALOADER_TEST,
-            **loss,
+            loss["weight"],
+            loss["alpha"],
+            loss["gamma"],
             is_loss=True,
         )
         y_val_pred = take_at_least_one(y_val_prob, threshold)
