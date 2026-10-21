@@ -15,11 +15,11 @@ from mprotein.fit.fit import model_train, model_eval
 from mprotein.models.core import Deeploc2_1, AttentionPoolingConfig, ModelConfig
 from mprotein.embeddings.embeddings_load import padding_collate_fn, K_CV_Dataset
 
-# with open("configs/config_v1.yaml") as f:
-with open("/content/drive/MyDrive/Github/Mprotein_hydrophobic/config_v1.yaml") as f:
+with open("configs/config_v1.yaml") as f:
+# with open("/content/drive/MyDrive/Github/Mprotein_hydrophobic/config_v1.yaml") as f:
     file = yaml.full_load(f)
-    #    weight_path = file["weights_path"]
-    #    DATA_PATH = file["data_path"]
+    weight_path = file["weights_path"]
+    DATA_PATH = file["data_path"]
     K_CV = file["k_cv"]
     NUM_EPOCHS = file["num_epochs"]
     IR = file["learning_rate"]
@@ -31,8 +31,8 @@ with open("/content/drive/MyDrive/Github/Mprotein_hydrophobic/config_v1.yaml") a
 
 ## colab cli 환경에서 하기 위한 임시 코드
 loss["weight"] = torch.tensor(loss["weight"], dtype=torch.float32)
-weight_path = "/content/drive/MyDrive/Github/Mprotein_hydrophobic/weight"
-DATA_PATH = "/content/drive/MyDrive/Github/Mprotein_hydrophobic"
+# weight_path = "/content/drive/MyDrive/Github/Mprotein_hydrophobic/weight"
+# DATA_PATH = "/content/drive/MyDrive/Github/Mprotein_hydrophobic"
 
 CFG = ModelConfig(**model, pool=AttentionPoolingConfig(**pool))
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
