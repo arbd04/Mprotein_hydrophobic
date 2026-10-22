@@ -2,9 +2,16 @@
 ####### Fixed Params #######
 ############################
 
-# 경로
-csv_path: ./data/raw/dataset_from_deeploc2_1.csv
-data_path: ./data/embed_target/
+# 기본 경로
+datasets_path: ./data/datasets/
+embeddings_path: ./data/embeddings/
+
+
+
+
+
+
+
 pdb_path: ./data/pdb/
 weights_path: ./data/weights/
 out_path: ./outputs/

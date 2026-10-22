@@ -19,6 +19,7 @@ dependencies = [
     "pyyaml",
     "optuna",
     "einops",
+    "esm",
 ]
 
 [tool.setuptools.packages.find]
