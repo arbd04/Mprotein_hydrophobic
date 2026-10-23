@@ -21,7 +21,7 @@ df_raw = pd.read_csv(os.path.join(DATASETS_PATH, "dataset_from_deeploc2_1.csv"))
 df = df_raw.copy()
 
 
-with h5py.File(os.path.join(EMBEDDINGS_PATH, "embeddings_test.h5"), "a") as f:
+with h5py.File(os.path.join(EMBEDDINGS_PATH, "embeddings.h5"), "a") as f:
     for acc, seq in tqdm.tqdm(zip(df["ACC"], df["Sequence"]), total=len(df)):
         if acc in f:
             continue
