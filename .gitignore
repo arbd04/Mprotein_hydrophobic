@@ -244,6 +244,8 @@ $RECYCLE.BIN/
 
 ## etc ##
 /data/maps/
+/data/embeddings/
 /git_commit.ipynb
 /etc.gdoc
 /data/embed_target/embeddings.safetensors
+/.ipynb_checkpoints
