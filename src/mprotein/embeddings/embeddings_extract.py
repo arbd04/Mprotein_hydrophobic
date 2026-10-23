@@ -6,11 +6,9 @@ def embeddings_extract(sequence, model=None, tokenizer=None, device="cpu"):
         device = "cuda"
     if model == None:
         from esm.models.esmc import EsmcForMaskedLM
-
         model = EsmcForMaskedLM.from_pretrained("biohub/ESMC-300M").to(device).eval()
     if tokenizer == None:
         from esm.models.esmc import EsmcTokenizer
-
         tokenizer = EsmcTokenizer()
 
     X_tokenized = tokenizer(

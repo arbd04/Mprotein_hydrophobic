@@ -12,7 +12,7 @@ with open("configs/config_v1.yaml") as f:
     DATASETS_PATH = file["datasets_path"]
     EMBEDDINGS_PATH = file["embeddings_path"]
 
-MODEL_ID = "biohub/ESMC-300M"
+MODEL_ID = "biohub/ESMC-6b"
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 MODEL_PRETRAINED = EsmcForMaskedLM.from_pretrained(MODEL_ID).to(DEVICE).eval()
 TOKENIZER = EsmcTokenizer()
