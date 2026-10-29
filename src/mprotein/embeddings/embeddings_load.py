@@ -2,8 +2,6 @@ import os
 import torch
 
 import h5py
-# from torch_geometric.data import Data
-# from safetensors import safe_open
 from torch.utils.data import Dataset
 from torch.nn.utils.rnn import pad_sequence
 
