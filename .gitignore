@@ -244,7 +244,7 @@ $RECYCLE.BIN/
 
 ## etc ##
 /data/maps/
-/data/embeddings/
+/data/embeddings/embeddings.h5
 /git_commit.ipynb
 /etc.gdoc
 /.ipynb_checkpoints
